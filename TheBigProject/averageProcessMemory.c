@@ -11,7 +11,7 @@ unsigned long long averageSnapShotMemory()
 	t_SnapShot* snapShotList = Shead;
 	if (!Shead)
 	{
-		return;
+		return 0;
 	}
 	t_Process* currProcess = NULL;
 
@@ -41,7 +41,7 @@ unsigned long long averageSnapShotMemory()
 	}
 	else
 	{
-		return;
+		return 0;
 	}
 	unsigned long long sum1SnapShot=0;
 	unsigned long long avg = 0;
@@ -86,5 +86,6 @@ unsigned long long averageSnapShotMemory()
 		 PDictionaryTail = addProcessID;
 		 return;
 	 }
+	 return;
 
  }

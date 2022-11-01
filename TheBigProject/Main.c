@@ -16,6 +16,7 @@
 
 int main()
 {
+    // gets the snapshot after created
     t_SnapShot* snapShot=NULL;
     char userResponses = NULL;
     char strFileName[1000];
@@ -34,6 +35,7 @@ int main()
     while (userResponses != 'Q')
     {
         printf("Dear user,there is options for you to build your dictionary:\n1. A-Take one snapshot\n2. T-Take 20 snapshots\n3. L-Start long snapshot\n4. G-Generate HTML report\n5. R-Reset collection\n6. S-Save in file\n7. U-Upload from File\n8. Q-Quit\n");
+        // space in order to disable the enter input
         scanf(" %c", &userResponses);
         switch (userResponses)
         {

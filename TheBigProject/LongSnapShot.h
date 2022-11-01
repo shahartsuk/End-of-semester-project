@@ -10,5 +10,6 @@
 #include"LogFile.h"
 #include"Build ProcessList.h"
 #include"Build SnapShot.h"
+#include"MemoryFree.h"
 
 void LongSnapShot();

@@ -9,6 +9,7 @@
 #include"LogFile.h"
 #include"Build ProcessList.h"
 #include"Sorting.h"
+#include"MemoryFree.h"
 
 extern t_SnapShot* Shead;
 extern t_SnapShot* Stail;

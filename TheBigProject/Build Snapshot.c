@@ -33,7 +33,6 @@ t_SnapShot* OneSnapShot()
 		sprintf(date, "Date and time of sample: %d %d %d - %02d:%02d", timeInfo->tm_year + 1900, timeInfo->tm_mon + 1, timeInfo->tm_mday, timeInfo->tm_hour, timeInfo->tm_min);
 		strcpy(SnapShot->SampleTime, date);
 		SnapShot->sampleNumber = sampleCounter;
-		sampleCounter++;
 
 		head = tail = NULL;
 
@@ -87,6 +86,7 @@ void TwentySnapShots() {
 							{
 								break;
 							}
+							// ! didnt work had to write ==NULL
 							else if (currentOrigProcessDll->next==NULL)
 							{
 
@@ -112,7 +112,7 @@ void TwentySnapShots() {
 				// found the process, stop and go to the next one
 				break;
 				}
-				else if (!currentOrigProcess->next) 
+				else if (currentOrigProcess->next==NULL) 
 				{
 					newProcessP = (t_Process*)malloc(sizeof(t_Process));
 					if (!newProcessP)
@@ -126,6 +126,7 @@ void TwentySnapShots() {
 					newProcessP->prev = currentOrigProcess;
 					newProcessP->next = NULL;
 					origSnapShot->processCounter++;
+					// Breaks after adding new process in order not to sum the pmc
 					break;
 				}
 				currentOrigProcess = currentOrigProcess->next;

@@ -42,7 +42,10 @@ void releaseTheCollection() { // deletes all list
 			{
 				currentDLL = Shead->process->ProcessDLLList;
 				Shead->process->ProcessDLLList = Shead->process->ProcessDLLList->next;
+				if (currentDLL)
+				{
 				free(currentDLL);
+				}
 			}
 			Shead->process->ProcessDLLList = NULL;
 			Shead->process = Shead->process->next;

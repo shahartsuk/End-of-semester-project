@@ -56,12 +56,8 @@ void ProcessMemoryInfo(DWORD processID)
 		}
 
 		// coppy information about the process to pmc like malloc
-		if (GetProcessMemoryInfo(hProcess, &pmc, sizeof(pmc)))
-		{	
-
-		}
-		// have to close every process i opened
-
+		GetProcessMemoryInfo(hProcess, &pmc, sizeof(pmc));
+		
 		// get DLL list
 
 		if (EnumProcessModules(hProcess, hMods, sizeof(hMods), &cbNeeded))
@@ -90,6 +86,7 @@ void ProcessMemoryInfo(DWORD processID)
 
 		buildProcessData(processID,ProcessName,DLLCounter,pmc);
 
+		// have to close every process i opened
 		CloseHandle(hProcess);
 }
 int GetProcessInfo()
@@ -97,10 +94,10 @@ int GetProcessInfo()
 	//Get processes
 	//Receive all process ID
 
-	// string of processes
+	// Global variable that counts number of processes, get used different files.
 	PCounter = 0;
 	DWORD aProcesses[1024], cbNeeded, cProcesses;
-	unsigned long i;
+	unsigned int i;
 
 	// EnumProcesses function get the processes id
 	if (!EnumProcesses(aProcesses, sizeof(aProcesses), &cbNeeded))

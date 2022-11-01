@@ -56,11 +56,12 @@ void LongSnapShot()
 						currentOrigProcessDll = currentOrigProcess->ProcessDLLList;
 						while (currentOrigProcessDll)
 						{
-							if (strncmp(currentOrigProcessDll->DLLName, newProcessDll->DLLName, MAX_PATH) == 0)
+							if (strcmp(currentOrigProcessDll->DLLName, newProcessDll->DLLName) == 0)
 							{
 								break;
 							}
-							else if (!currentOrigProcessDll->next)
+							// ! didnt work had to write ==NULL
+							else if (currentOrigProcessDll->next==NULL)
 							{
 
 								newDLLP = (t_DLL*)malloc(sizeof(t_DLL));
